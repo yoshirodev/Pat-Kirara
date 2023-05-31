@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kirara Headpat</title>
+    </head>
+
+    <body>
+        <h1 style="text-align: center;">Kirara best Youkai waifu | Now pat her because she deserve it</h1>
+        <h1 id="numpat" class="numpat">0 Pats</h1>
+
+        <div class="headpat"></div>
+        <div class="kirara"></div>
+
+        <Button class="patbutton" onclick="KiraraPat()">Pat</Button>
+    </body>
+    <style>
+        body{
+            background-color: #dac2a4;
+        }
+
+        .numpat{
+            position: absolute;
+            top: 10%;
+            left: 47%;
+            font-style:initial;
+        }
+
+        @keyframes headpatanim{
+            0%   {background-image: url(assets/headpat/hpf1.png);}
+            50%  {background-image: url(assets/headpat/hpf2.png);}
+            100%  {background-image: url(assets/headpat/hpf3.png);}
+        }
+
+        .headpat{
+            position: absolute;
+            background-image: url(assets/headpat/hpf1.png);
+            top: 27%;
+            left: 35%;
+            background-size: 288px 288px;
+            height: 288px;
+            width: 288px;
+            padding: 15px 5px;
+        }
+
+        .hpshow{
+            animation-name: headpatanim;
+            animation-duration: 0.2s;
+        }
+
+        @keyframes kiraraanim{
+            0%   {background-image: url(assets/kirara/krr1.png);}
+            50%  {background-image: url(assets/kirara/krr2.png);}
+            100%  {background-image: url(assets/kirara/krr3.png);}
+        }
+
+        .kirara{
+            position: absolute;
+            background-image: url(assets/kirara/krr1.png);
+            z-index: -1;
+            top: 35%;
+            left: 36%;
+            background-size: 288px 288px;
+            height: 280px;
+            width: 288px;
+            padding: 5px 5px;
+        }
+
+        .krshow{
+            animation-name: kiraraanim;
+            animation-duration: 0.2s;
+        }
+
+        .patbutton {
+            position: absolute;
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #857765;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px rgb(126, 124, 124);
+            top: 75%;
+            left: 44%;
+        }
+
+        .patbutton:hover {
+            background-color: #836641
+        }
+
+        .patbutton:active {
+            background-color: #836641;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+    </style>
+
+    <script>
+        let pats = 0;
+
+        function KiraraPat(){
+            document.querySelector(".headpat").className = "headpat";
+            document.querySelector(".kirara").className = "kirara";
+            requestAnimationFrame((time) => {
+                requestAnimationFrame((time) => {
+                    document.querySelector(".headpat").className = "headpat hpshow";
+                    document.querySelector(".kirara").className = "kirara krshow";
+
+                    
+                    pats ++;
+                    document.getElementById('numpat').innerText = pats.toString() + " Pats";
+                });
+            });
+        }
+    </script>
+</html>
