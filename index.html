@@ -5,6 +5,10 @@
     </head>
 
     <body>
+        <div id="popup" class="popup">
+            <h2 id="alert" class="alert"></h2>
+        </div>
+
         <h1 style="text-align: center;">Kirara best Youkai waifu | Now pat her because she deserve it</h1>
         <h1 id="numpat" class="numpat">0 Pats</h1>
 
@@ -12,10 +16,43 @@
         <div class="kirara"></div>
 
         <Button class="patbutton" onclick="KiraraPat()">Pat</Button>
+
+        
+
+        <a href="https://twitter.com/Yoshiroooo0">TWITAH</a>
     </body>
     <style>
         body{
             background-color: #dac2a4;
+        }
+
+        .popup{
+            position: absolute;
+            height: 50px;
+            width: 500px;
+            background-color: #dda055;
+            left: 30%;
+            border: #7c490b;
+            border-style: solid;
+            z-index: 999;
+            top: -10%;
+            transition: 1s;
+        }
+
+        .alert{
+            text-align: center;
+            text-shadow: #666;
+            font: initial;
+        }
+
+        .popshow{
+            top: 5%;
+            transform: translateY(0);
+        }
+
+        .popremove{
+            top: -10%;
+            transform: translateY(0);
         }
 
         .numpat{
@@ -110,11 +147,49 @@
                     document.querySelector(".headpat").className = "headpat hpshow";
                     document.querySelector(".kirara").className = "kirara krshow";
 
-                    
                     pats ++;
                     document.getElementById('numpat').innerText = pats.toString() + " Pats";
+                    PopUp();
                 });
             });
+        }
+
+        function PopUp(){
+            let popup = document.getElementById('popup');
+
+            switch(pats){
+                case 100:
+                    AddPopUp();
+                    document.getElementById('alert').innerHTML = "Wow congratulations for reaching 100 pats, Kirara really loved it";
+                    break;
+                case 200:
+                    AddPopUp();
+                    document.getElementById('alert').innerHTML = "Wow you actually made it to 200 NICE";
+                    break;
+                case 300:
+                    AddPopUp();
+                    document.getElementById('alert').innerHTML = "didn't expect you to reach 300, keep up the good work!!";
+                    break;
+                case 400:
+                    AddPopUp();
+                    document.getElementById('alert').innerHTML = "i forgot to tell you that if you keep patting Kirara her hair will burn";
+                    break;
+                case 500:
+                    AddPopUp();
+                    document.getElementById('alert').innerHTML = "OMG STOPPPP!!!";
+                    break;
+            }
+
+            function AddPopUp(){
+                popup.classList.add('popshow');
+                popup.classList.remove('popremove');
+                setTimeout(RemovePopUp, 5000);
+            }
+
+            function RemovePopUp(){
+                popup.classList.remove('popshow');
+                popup.classList.add('popremove');
+            }
         }
     </script>
 </html>
